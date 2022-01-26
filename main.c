@@ -1,6 +1,6 @@
-#include "libft/libft.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "push_swap.h"
+#include <stdlib.h>//
+#include <stdio.h>//
 
 void	ft_print()
 {
@@ -8,158 +8,73 @@ void	ft_print()
 	exit(EXIT_FAILURE);
 }
 
-void	ft_sort(int *array, int len)
+void	ft_make_node(int value, t_list **lst)
 {
-	int	i;
-	int	j;
-	int	number;
+	t_list	*new;
 
-	i = 0;
-	number = 0;
-	while (i < len - 1)
+	if (!lst)
 	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (array[j] < array[i])
-			{
-				number = array[i];
-				array[i] = array[j];
-				array[j] = number;
-			}
-			j++;
-		}
-		i++;
+		*lst = ft_lstnew(value);
 	}
-}
-
-int ft_check_max_min(char *str)
-{
-	char	*new_number;
-	int		number;
-
-	number = ft_atoi(str);
-	new_number = ft_itoa(number);
-	if (ft_strncmp(str, new_number, ft_strlen(str)) != 0)
-	{
-		free(new_number);
-		ft_print();
-	}
-	return(1);
-}
-
-int	ft_isnumber(char *str)
-{
-	int	i;
-
-	i = 0;
-	if ((str[0] != '-') && !ft_isdigit(str[0]))
-		ft_print();
 	else
-		i++;
-	while (i < ft_strlen(str))
 	{
-		if (ft_isdigit(str[i]))
-			i++;
-		else
-			ft_print();
+		new = ft_lstnew(value);
+		ft_lstadd_back(lst, new);
 	}
-	if (ft_strlen(str) > 11)
-		ft_print();
-	else if (ft_strlen(str) == 10 || ft_strlen(str) == 11)
-	{
-		if (ft_check_max_min(str) == 1)
-			return (1);
-	}
-	return (1);
 }
 
-int	*ft_check_duplicates(int *array, int len)
+void	ft_make_stack(t_list *lst, int *array, int len)
 {
-	int	i;
-	int j;
+	int	j;
 
-	i = 0;
-	while (i < len - 1)
-	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (array[i] == array[j])
-			{
-				free(array);
-				ft_print();
-			}
-			else
-				j++;
-		}
-		i++;
-	}
-	return(array);
+	j = 1;
+	while (j < len - 1)
+		ft_make_node(array[j++], &lst);
 }
 
-int	*ft_make_sorted_int_array(char **array, int len)
+void	print_stack(t_list	*list)//
 {
-	int	*new;
-	int	i;
-
-	i = 1;
-	new = (int *)malloc((len - 1) * sizeof(int));
-	while (i < len)
+	while (list)
 	{
-		if (ft_isnumber(array[i]) == 1)
-		{
-			new[i - 1] = ft_atoi(array[i]);
-			i++;
-		}
-		else
-		{
-			free(new);
-			ft_print();
-		}
+		printf("%d ",list->value);
+		list = list->next;
 	}
-	ft_sort(new, len - 1);
-	return (ft_check_duplicates(new, len - 1));
+	
 }
 
-int	*ft_make_int_array(char **array, int len)
+int	main(int argc, char **argv)
 {
-	int	*new;
-	int	i;
+    int		*new;
+	int		*sorted_new;
+	t_list	*stack;
 
-	i = 1;
-	new = (int *)malloc((len - 1) * sizeof(int));
-	while (i < len)
-	{
-		if (ft_isnumber(array[i]) == 1)
-		{
-			new[i - 1] = ft_atoi(array[i]);
-			i++;
-		}
-		else
-		{
-			free(new);
-			ft_print();
-		}
-	}
-	return (ft_check_duplicates(new, len - 1));
-}
-
-
-int	main(int argc, char *argv[])
-{
-    int	*new;
-	int	*sorted_new;
-	int i = 0;
+	int i = 0;//
 	
 	new = ft_make_int_array(argv, argc);
 	sorted_new = ft_make_sorted_int_array(argv, argc);
+	ft_array_is_sorted(new, sorted_new, argc);
+	stack = ft_lstnew(new[0]);
+	ft_make_stack(stack, new, argc);
 	//printf("%d\n", ft_check_max_min("-2147483648"));
 	//ft_sort(new, argc - 1);
 	while (i < argc - 1)
 	{
+		//printf("%d ", sorted_new[i]);
 		printf("%d ", new[i]);
 		i++;
 	}
+	//printf("%d\n");
+	//printf("%d\n", stack->value);
 	//printf("%d\n", ft_atoi("-2147483649"));
+	//ft_make_stack(&stack, new, argc);
+	// i = 1;
+	// while (i < argc - 1)
+	// {
+	// 	printf("errori = %d ", i);
+	// 	ft_make_node(new[i], &stack);
+	// 	i++;
+	// }
+	printf("\n%d\n", stack->value);
+	print_stack(stack);
+	return (0);
 }
