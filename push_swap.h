@@ -22,6 +22,11 @@ void	ft_make_node(int value, t_list **lst);
 
 void	ft_make_stack(t_list *lst, int *array, int len);
 
+void	ft_ra(t_list	**lst);
+
+void	ft_rb(t_list	**lst);
+
+void	ft_rr(t_list	**lst_a, t_list	**lst_b);
 
 
 #endif
