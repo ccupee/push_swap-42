@@ -41,7 +41,14 @@ SRCS			= ft_isalpha.c \
 				ft_putendl_fd.c \
 				ft_putnbr_fd.c \
 				ft_lstnew.c \
-				ft_lstadd_back.c
+				ft_lstadd_back.c \
+				ft_lstlast.c \
+				ft_lstadd_front.c \
+				ft_lstclear.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstmap.c \
+				ft_lstsize.c
 
 HEADFLS			= libft.h
 
