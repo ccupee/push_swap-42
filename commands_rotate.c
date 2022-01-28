@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	ft_ra(t_list	**lst)
+void	ft_ra(t_list	**lst, int	k)
 {
 	t_list	*cur;
 	int		current;
@@ -15,10 +15,11 @@ void	ft_ra(t_list	**lst)
 		cur = cur->next;
 	}
 	ft_lstlast(cur)->value = current;
-	ft_putendl_fd("ra", 1);
+	if (k == 1)
+		ft_putendl_fd("ra", 1);
 }
 
-void	ft_rb(t_list	**lst)
+void	ft_rb(t_list	**lst, int	k)
 {
     t_list	*cur;
 	int		current;
@@ -33,12 +34,13 @@ void	ft_rb(t_list	**lst)
 		cur = cur->next;
 	}
 	ft_lstlast(cur)->value = current;
-	ft_putendl_fd("rb", 1);
+	if (k == 1)
+		ft_putendl_fd("rb", 1);
 }
 
 void	ft_rr(t_list	**lst_a, t_list	**lst_b)
 {
-    ft_ra(lst_a);
-    ft_rb(lst_b);
+    ft_ra(lst_a, 0);
+    ft_rb(lst_b, 0);
     ft_putendl_fd("rr", 1);
 }
