@@ -16,11 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct  s_list
+typedef struct s_list
 {
-    int value;
-    struct s_list *next;    
-}               t_list;
+	int				value;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int c);
 
@@ -96,7 +96,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 
 t_list	*ft_lstlast(t_list	*lst);
 
-int     ft_lstsize(t_list	*lst);
+int		ft_lstsize(t_list	*lst);
 
 void	ft_lstadd_front(t_list	**lst, t_list	*new);
 
