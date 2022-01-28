@@ -1,4 +1,4 @@
-NAME			=		minishell
+NAME			=		push_swap
 LIBFT_PATH		=		libft/
 LIBFT			=		$(LIBFT_PATH)libft.a
 SRC_PATH		=		src/

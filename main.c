@@ -1,36 +1,5 @@
 #include "push_swap.h"
-#include <stdlib.h>//
 #include <stdio.h>//
-
-void	ft_print()
-{
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
-
-void	ft_make_node(int value, t_list **lst)
-{
-	t_list	*new;
-
-	if (!lst)
-	{
-		*lst = ft_lstnew(value);
-	}
-	else
-	{
-		new = ft_lstnew(value);
-		ft_lstadd_back(lst, new);
-	}
-}
-
-void	ft_make_stack(t_list *lst, int *array, int len)
-{
-	int	j;
-
-	j = 1;
-	while (j < len - 1)
-		ft_make_node(array[j++], &lst);
-}
 
 void	print_stack(t_list	*list)//
 {
@@ -48,6 +17,9 @@ int	main(int argc, char **argv)
 	int		*sorted_new;
 	t_list	*stack;
 
+	int array[4] = {0, 1, 2, 3};
+	t_list *stack_dop;
+
 	int i = 0;//
 	
 	new = ft_make_int_array(argv, argc);
@@ -63,6 +35,9 @@ int	main(int argc, char **argv)
 		printf("%d ", new[i]);
 		i++;
 	}
+	stack_dop = ft_lstnew(array[0]);
+	ft_make_stack(stack_dop, array, argc);
+
 	//printf("%d\n");
 	//printf("%d\n", stack->value);
 	//printf("%d\n", ft_atoi("-2147483649"));
@@ -76,5 +51,25 @@ int	main(int argc, char **argv)
 	// }
 	printf("\n%d\n", stack->value);
 	print_stack(stack);
+	printf("%c", '\n');
+	print_stack(stack_dop);
+
+	// ft_sa(&stack, 1);
+	// printf("%c", '\n');
+	//print_stack(stack);
+
+	// ft_ra(&stack, 1);
+	// printf("%c", '\n');
+	//print_stack(stack);
+
+	// ft_rra(&stack, 1);
+	// printf("%c", '\n');
+	//print_stack(stack);
+
+	ft_pb(&stack, &stack_dop);
+	// printf("%c", '\n');
+	// print_stack(stack);
+	// printf("%c", '\n');
+	// print_stack(stack_dop);
 	return (0);
 }

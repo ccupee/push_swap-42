@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spgibber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/28 16:38:27 by spgibber          #+#    #+#             */
+/*   Updated: 2022/01/28 16:38:29 by spgibber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_sort(int *array, int len)
@@ -25,7 +37,7 @@ void	ft_sort(int *array, int len)
 	}
 }
 
-int ft_check_max_min(char *str)
+int	ft_check_max_min(char *str)
 {
 	char	*new_number;
 	int		number;
@@ -37,7 +49,7 @@ int ft_check_max_min(char *str)
 		free(new_number);
 		ft_print();
 	}
-	return(1);
+	return (1);
 }
 
 int	ft_isnumber(char *str)
@@ -69,7 +81,7 @@ int	ft_isnumber(char *str)
 int	*ft_check_duplicates(int *array, int len)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (i < len - 1)
@@ -87,7 +99,7 @@ int	*ft_check_duplicates(int *array, int len)
 		}
 		i++;
 	}
-	return(array);
+	return (array);
 }
 
 int	*ft_make_sorted_int_array(char **array, int len)
@@ -114,47 +126,4 @@ int	*ft_make_sorted_int_array(char **array, int len)
 	}
 	ft_sort(new, len - 1);
 	return (ft_check_duplicates(new, len - 1));
-}
-
-int	*ft_make_int_array(char **array, int len)
-{
-	int	*new;
-	int	i;
-
-	i = 1;
-	new = (int *)malloc((len - 1) * sizeof(int));
-	while (i < len)
-	{
-		if (ft_isnumber(array[i]) == 1)
-		{
-			new[i - 1] = ft_atoi(array[i]);
-			i++;
-		}
-		else
-		{
-			free(new);
-			ft_print();
-		}
-	}
-	return (ft_check_duplicates(new, len - 1));
-}
-
-void	ft_array_is_sorted(int *array, int *new, int len)
-{
-	int	i;
-	int	count;
-
-	i = -1;
-	count = 0;
-	while (++i < len - 1)
-	{
-		if (array[i] == new[i])
-			count++;
-	}
-	if (count == len - 1)
-    {
-        free(array);
-        free(new);
-		exit(EXIT_FAILURE);
-    }
 }

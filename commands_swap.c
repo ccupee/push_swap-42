@@ -1,21 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   commands_swap.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spgibber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/28 16:48:38 by spgibber          #+#    #+#             */
+/*   Updated: 2022/01/28 16:48:39 by spgibber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_sa(t_list **lst, int k)
 {
+	int		current;
 
+	if (!*lst || !(*lst)->next)
+		return ;
+	current = (*lst)->value;
+	(*lst)->value = ((*lst)->next)->value;
+	((*lst)->next)->value = current;
 	if (k == 1)
-		ft_putendl_fd("sa", 1);   
+		ft_putendl_fd("sa", 1);
 }
 
 void	ft_sb(t_list **lst, int k)
 {
+	int		current;
+
+	if (!*lst || !(*lst)->next)
+		return ;
+	current = (*lst)->value;
+	(*lst)->value = ((*lst)->next)->value;
+	((*lst)->next)->value = current;
 	if (k == 1)
-		ft_putendl_fd("sb", 1);   
+		ft_putendl_fd("sb", 1);
 }
 
 void	ft_ss(t_list **lst_a, t_list **lst_b)
 {
 	ft_sa(lst_a, 0);
 	ft_sb(lst_b, 0);
-	ft_putendl_fd("ss", 1);   
+	ft_putendl_fd("ss", 1);
 }
