@@ -20,7 +20,7 @@ typedef struct	s_env
 	t_list	*stack_b;
 	int		max;
 	int		min;
-	int		mid;
+	int		middle;
 	int		a_size;
 	int		b_size;
 }   t_env;
@@ -69,6 +69,6 @@ void	ft_pb(t_env *env, int flag);
 
 void	sort_three_a(t_env *env);
 
-static t_env	*set_env(int *array, int *sorted_array, int len);
+t_env	*set_env(int *array, int *sorted_array, int len);
 
 #endif
