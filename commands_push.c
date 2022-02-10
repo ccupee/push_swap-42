@@ -12,26 +12,31 @@
 
 #include "push_swap.h"
 
-void	ft_pa(t_list **lst_a, t_list **lst_b)
+void	ft_pa(t_env *env, int flag)
 {
 	t_list	*cur;
 
-	if (!(*lst_b))
+	if (!(env->stack_b))
 		return ;
-	cur = *lst_b;
-	*lst_b = (*lst_b)->next;
-	ft_lstadd_front(lst_a, cur);
-	ft_putendl_fd("pa", 1);
+	cur = env->stack_b;
+	env->stack_b = env->stack_b->next;
+	ft_lstadd_front(&(env->stack_a), cur);
+	env->a_size++;
+	env->b_size--;
+	if (flag == 1)
+		ft_putendl_fd("pa", 1);
 }
 
-void	ft_pb(t_list **lst_a, t_list **lst_b)
+void	ft_pb(t_env *env, int flag)
 {
 	t_list	*cur;
 
-	if (!(*lst_a))
+	if (!(env->stack_a))
 		return ;
-	cur = *lst_a;
-	*lst_a = (*lst_a)->next;
-	ft_lstadd_front(lst_b, cur);
+	cur = env->stack_a;
+	env->stack_a = env->stack_a->next;
+	ft_lstadd_front(&(env->stack_b), cur);
+	env->b_size++;
+	env->a_size--;
 	ft_putendl_fd("pb", 1);
 }

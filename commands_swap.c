@@ -12,35 +12,35 @@
 
 #include "push_swap.h"
 
-void	ft_sa(t_list **lst, int k)
+void	ft_sa(t_env *env, int flag)
 {
 	int		current;
 
-	if (!*lst || !(*lst)->next)
+	if (!(env->stack_a) || !(env->stack_a->next))
 		return ;
-	current = (*lst)->value;
-	(*lst)->value = ((*lst)->next)->value;
-	((*lst)->next)->value = current;
-	if (k == 1)
+	current = env->stack_a->value;
+	env->stack_a->value = (env->stack_a->next)->value;
+	(env->stack_a->next)->value = current;
+	if (flag == 1)
 		ft_putendl_fd("sa", 1);
 }
 
-void	ft_sb(t_list **lst, int k)
+void	ft_sb(t_env *env, int flag)
 {
 	int		current;
 
-	if (!*lst || !(*lst)->next)
+	if (!(env->stack_b) || !(env->stack_b->next))
 		return ;
-	current = (*lst)->value;
-	(*lst)->value = ((*lst)->next)->value;
-	((*lst)->next)->value = current;
-	if (k == 1)
+	current = env->stack_b->value;
+	env->stack_b->value = (env->stack_b->next)->value;
+	(env->stack_b->next)->value = current;
+	if (flag == 1)
 		ft_putendl_fd("sb", 1);
 }
 
-void	ft_ss(t_list **lst_a, t_list **lst_b)
+void	ft_ss(t_env *env)
 {
-	ft_sa(lst_a, 0);
-	ft_sb(lst_b, 0);
+	ft_sa(env, 0);
+	ft_sb(env, 0);
 	ft_putendl_fd("ss", 1);
 }

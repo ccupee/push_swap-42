@@ -14,6 +14,17 @@
 # define PUSH_SWAP_H
 # include "libft/libft.h"
 
+typedef struct	s_env 
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+	int		max;
+	int		min;
+	int		mid;
+	int		a_size;
+	int		b_size;
+}   t_env;
+
 void	ft_print(void);
 
 void	ft_sort(int *array, int len);
@@ -34,26 +45,30 @@ void	ft_make_node(int value, t_list **lst);
 
 void	ft_make_stack(t_list *lst, int *array, int len);
 
-void	ft_ra(t_list **lst, int k);
+void	ft_ra(t_env *env, int flag);
 
-void	ft_rb(t_list **lst, int k);
+void	ft_rb(t_env *env, int flag);
 
-void	ft_rr(t_list **lst_a, t_list **lst_b);
+void	ft_rr(t_env *env);
 
-void	ft_sa(t_list **lst, int k);
+void	ft_sa(t_env *env, int flag);
 
-void	ft_sb(t_list **lst, int k);
+void	ft_sb(t_env *env, int flag);
 
-void	ft_ss(t_list **lst_a, t_list **lst_b);
+void	ft_ss(t_env *env);
 
-void	ft_rra(t_list **lst, int k);
+void	ft_rra(t_env *env, int flag);
 
-void	ft_rrb(t_list **lst, int k);
+void	ft_rrb(t_env *env, int flag);
 
-void	ft_rrr(t_list **lst_a, t_list **lst_b);
+void	ft_rrr(t_env *env);
 
-void	ft_pa(t_list **lst_a, t_list **lst_b);
+void	ft_pa(t_env *env, int flag);
 
-void	ft_pb(t_list **lst_a, t_list **lst_b);
+void	ft_pb(t_env *env, int flag);
+
+void	sort_three_a(t_env *env);
+
+static t_env	*set_env(int *array, int *sorted_array, int len);
 
 #endif

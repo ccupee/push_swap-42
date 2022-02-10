@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void	ft_ra(t_list **lst, int k)
+void	ft_ra(t_env *env, int flag)
 {
 	t_list	*cur;
 	int		current;
 
-	if (!*lst || !(*lst)->next)
+	if (!(env->stack_a) || !(env->stack_a->next))
 		return ;
-	cur = *lst;
+	cur = env->stack_a;
 	current = cur->value;
 	while (cur->next)
 	{
@@ -27,18 +27,18 @@ void	ft_ra(t_list **lst, int k)
 		cur = cur->next;
 	}
 	ft_lstlast(cur)->value = current;
-	if (k == 1)
+	if (flag == 1)
 		ft_putendl_fd("ra", 1);
 }
 
-void	ft_rb(t_list **lst, int k)
+void	ft_rb(t_env *env, int flag)
 {
 	t_list	*cur;
 	int		current;
 
-	if (!*lst || !(*lst)->next)
+	if (!(env->stack_b) || !(env->stack_b->next))
 		return ;
-	cur = *lst;
+	cur = env->stack_b;
 	current = cur->value;
 	while (cur->next)
 	{
@@ -46,13 +46,13 @@ void	ft_rb(t_list **lst, int k)
 		cur = cur->next;
 	}
 	ft_lstlast(cur)->value = current;
-	if (k == 1)
+	if (flag == 1)
 		ft_putendl_fd("rb", 1);
 }
 
-void	ft_rr(t_list	**lst_a, t_list	**lst_b)
+void	ft_rr(t_env *env)
 {
-	ft_ra(lst_a, 0);
-	ft_rb(lst_b, 0);
+	ft_ra(env, 0);
+	ft_rb(env, 0);
 	ft_putendl_fd("rr", 1);
 }
