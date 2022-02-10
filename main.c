@@ -28,73 +28,12 @@ int	main(int argc, char **argv)
 	ft_array_is_sorted(new, sorted_new, argc);
 	env = set_env(new, sorted_new, argc);
 
-	while (i < argc - 1)
-		printf("%d ", sorted_new[i++]);
-	printf("%c", '\n');
-	printf("%d\n", env->max);
-	printf("%d\n", env->min);
-	printf("%d\n", env->middle);
-	// printf("%c", '\n');
-	// print_stack(env->stack_a);
-	// printf("%c", '\n');
-	//printf("%d", env->stack_a->value);
-	// printf("%c", '\n');
-	// ft_pb(env, 1);
-	// print_stack(env->stack_a);
-	// printf("%c", '\n');
-	// print_stack(env->stack_b);
-	// ft_pb(env, 1);
-	// ft_pb(env, 1);
-
 	sort_three_a(env);
 
 	printf("%c", '\n');
 	print_stack(env->stack_a);
 	printf("%c", '\n');
 	print_stack(env->stack_b);
-
-	// printf("%c", '\n');
-	// ft_pb(env, 1);
-	// print_stack(env->stack_a);
-	// printf("%c", '\n');
-	// print_stack(env->stack_b);
-
-	// printf("%c", '\n');
-	// ft_ss(env);
-	// print_stack(env->stack_a);
-	// printf("%c", '\n');
-	// print_stack(env->stack_b);
-
-	// printf("%c", '\n');
-	// ft_rb(env, 1);
-	// print_stack(env->stack_a);
-	// printf("%c", '\n');
-	// print_stack(env->stack_b);
-
-	// printf("%c", '\n');
-	// ft_rr(env);
-	// print_stack(env->stack_a);
-	// printf("%c", '\n');
-	// print_stack(env->stack_b);
-
-	//print_stack(stack_dop);
-
-	// ft_sa(&stack, 1);
-	// printf("%c", '\n');
-	//print_stack(stack);
-
-	// ft_ra(&stack, 1);
-	// printf("%c", '\n');
-	//print_stack(stack);
-
-	// ft_rra(&stack, 1);
-	// printf("%c", '\n');
-	//print_stack(stack);
-
-	//ft_pb(&stack, &stack_dop);
-	// printf("%c", '\n');
-	// print_stack(stack);
-	// printf("%c", '\n');
-	// print_stack(stack_dop);
+	
 	return (0);
 }
