@@ -69,6 +69,8 @@ void	ft_pb(t_env *env, int flag);
 
 void	sort_three_a(t_env *env);
 
+void	sort_three_b(t_env *env);
+
 t_env	*set_env(int *array, int *sorted_array, int len);
 
 #endif

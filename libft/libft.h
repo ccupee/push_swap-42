@@ -19,6 +19,10 @@
 typedef struct s_list
 {
 	int				value;
+	int				ra_score;
+	int				rb_score;
+	int				rra_score;
+	int				rrb_score;
 	struct s_list	*next;
 }	t_list;
 
