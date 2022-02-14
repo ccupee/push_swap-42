@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	rb_score(t_env *env)
+void	b_score(t_env *env)
 {
 	int		score;
 	t_list	*cur;
@@ -18,7 +18,7 @@ void	rb_score(t_env *env)
 	}
 }
 
-void	ra_score(t_env *env)
+void	a_score(t_env *env)
 {
 	t_list	*cur_b;
 	t_list	*first_a;
@@ -46,3 +46,5 @@ void	ra_score(t_env *env)
 		cur_b = cur_b->next;
 	}
 }
+
+

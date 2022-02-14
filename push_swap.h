@@ -73,4 +73,8 @@ void	sort_three_b(t_env *env);
 
 t_env	*set_env(int *array, int *sorted_array, int len);
 
+void	b_score(t_env *env);
+
+void	a_score(t_env *env);
+
 #endif
