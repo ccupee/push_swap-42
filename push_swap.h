@@ -83,4 +83,10 @@ void	mini_sort(t_env *env);
 
 void	push2b(t_env *env);
 
+int	is_sorted(t_env *env);///
+
+void	min_score_move(t_env *env, t_list *min_elem);
+
+t_list *find_min_elem(t_env *env);
+
 #endif

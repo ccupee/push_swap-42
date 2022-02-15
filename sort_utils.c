@@ -23,22 +23,6 @@ t_env	*set_env(int *array, int *sorted_array, int len)
 	return (env);
 }
 
-// int	is_sorted(t_list	*stack)
-// {
-// 	t_list	*cur;
-
-// 	if (!stack || !stack->next)
-// 		return (0);
-// 	cur = stack;
-// 	while (cur->next)
-// 	{
-// 		if (cur->value > cur->next->value)
-// 			return (0);
-// 		cur = cur->next;
-// 	}
-// 	return (1);
-// }
-
 void	sort_three_a(t_env *env)
 {
 	if (env->stack_a->value == env->max)

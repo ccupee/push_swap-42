@@ -28,18 +28,28 @@ int	main(int argc, char **argv)
 	ft_array_is_sorted(new, sorted_new, argc);
 	env = set_env(new, sorted_new, argc);
 
-	printf("%d\n", env->a_size);
+	//printf("%d\n", env->a_size);
 
 	//mini_sort(env);
 	//sort_three_a(env);
 
+	//printf("%d", is_sorted(env));
+
 	push2b(env);
 
-	//sort_three_a(env);
 	// ft_pb(env, 1);
 	// ft_pb(env, 1);
 	// ft_pb(env, 1);
 	// ft_pb(env, 1);
+
+	printf("%c", '\n');
+	print_stack(env->stack_a);
+	printf("%c", '\n');
+	print_stack(env->stack_b);
+
+	t_list *minimum;
+	minimum = find_min_elem(env);
+	min_score_move(env, minimum);
 
 	printf("%c", '\n');
 	print_stack(env->stack_a);

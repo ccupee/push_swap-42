@@ -97,13 +97,3 @@ t_list *find_min_elem(t_env *env)
 	}	
 	return (min_elem);
 }
-
-void	ra_rb_actions_move(t_env *env, t_list *min_elem)
-{
-
-}
-
-void	next_move(t_env *env)
-{
-
-}
