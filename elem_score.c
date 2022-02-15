@@ -87,14 +87,16 @@ int	calculate_score(t_list *stack)
 t_list *find_min_elem(t_env *env)
 {
 	t_list *min_elem;
+	t_list *cur;
 
 	min_elem = env->stack_b;
-	env->stack_b = env->stack_b->next;
-	while (env->stack_b)
+	cur = env->stack_b;
+	cur = cur->next;
+	while (cur)
 	{
-		if (calculate_score(min_elem) > calculate_score(env->stack_b))
-			min_elem = env->stack_b;
-		env->stack_b = env->stack_b->next;
+		if (calculate_score(min_elem) > calculate_score(cur))
+			min_elem = cur;
+		cur = cur->next;
 	}	
 	return (min_elem);
 }
