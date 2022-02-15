@@ -49,27 +49,7 @@ void	a_score(t_env *env)
 
 int	calculate_score(t_list *stack)
 {
-	int	min_score[4];
 	int	min;
 
-	min_score[0] = stack->ra_score + stack->rrb_score;
-	min_score[1] = stack->rra_score + stack->rb_score;
-	if (stack->ra_score > stack->rb_score)
-		min_score[2] = stack->ra_score;
-	else
-		min_score[2] = stack->rb_score;
-	if (stack->rra_score > stack->rrb_score)
-		min_score[3] = stack->rra_score;
-	else
-		min_score[3] = stack->rrb_score;
-	min = find_min(min_score);
-	if (min_score[0] == min)
-		stack->action_type = ra_rrb_type;
-	else if (min_score[1] == min)
-		stack->action_type = rra_rb_type;
-	else if (min_score[2] == min)
-		stack->action_type = rr_type;
-	else if (min_score[3] == min)
-		stack->action_type = rrr_type;
 	return (min);
 }
