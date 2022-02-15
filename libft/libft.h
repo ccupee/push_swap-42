@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+enum	e_actions {ra_rb_actions, ra_rrb_actions, rra_rb_actions, rra_rrb_actions};
+
 typedef struct s_list
 {
 	int				value;
@@ -23,6 +25,7 @@ typedef struct s_list
 	int				rb_score;
 	int				rra_score;
 	int				rrb_score;
+	enum e_actions	type_of_actions;		
 	struct s_list	*next;
 }	t_list;
 

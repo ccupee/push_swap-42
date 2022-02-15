@@ -13,7 +13,7 @@ t_env	*set_env(int *array, int *sorted_array, int len)
 	env->stack_a = ft_lstnew(array[0]);
 	ft_make_stack(env->stack_a, array, len);
 	env->stack_b = NULL;
-	env->a_size = len;
+	env->a_size = len - 1;
 	env->b_size = 0;
 	if (!env->stack_a)
 	{
@@ -23,21 +23,21 @@ t_env	*set_env(int *array, int *sorted_array, int len)
 	return (env);
 }
 
-int	is_sorted(t_list	*stack)
-{
-	t_list	*cur;
+// int	is_sorted(t_list	*stack)
+// {
+// 	t_list	*cur;
 
-	if (!stack || !stack->next)
-		return (0);
-	cur = stack;
-	while (cur->next)
-	{
-		if (cur->value > cur->next->value)
-			return (0);
-		cur = cur->next;
-	}
-	return (1);
-}
+// 	if (!stack || !stack->next)
+// 		return (0);
+// 	cur = stack;
+// 	while (cur->next)
+// 	{
+// 		if (cur->value > cur->next->value)
+// 			return (0);
+// 		cur = cur->next;
+// 	}
+// 	return (1);
+// }
 
 void	sort_three_a(t_env *env)
 {

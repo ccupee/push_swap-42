@@ -28,12 +28,27 @@ int	main(int argc, char **argv)
 	ft_array_is_sorted(new, sorted_new, argc);
 	env = set_env(new, sorted_new, argc);
 
-	sort_three_a(env);
+	printf("%d\n", env->a_size);
+
+	//mini_sort(env);
+	//sort_three_a(env);
+
+	push2b(env);
+
+	//sort_three_a(env);
+	// ft_pb(env, 1);
+	// ft_pb(env, 1);
+	// ft_pb(env, 1);
+	// ft_pb(env, 1);
 
 	printf("%c", '\n');
 	print_stack(env->stack_a);
 	printf("%c", '\n');
 	print_stack(env->stack_b);
+
+	// b_score(env);
+	// a_score(env);
+	// printf("%d\n", calculate_score(env->stack_a));
 	
 	return (0);
 }

@@ -77,4 +77,10 @@ void	b_score(t_env *env);
 
 void	a_score(t_env *env);
 
+int		calculate_score(t_list *stack);
+
+void	mini_sort(t_env *env);
+
+void	push2b(t_env *env);
+
 #endif
