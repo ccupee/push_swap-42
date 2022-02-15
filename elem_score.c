@@ -47,17 +47,18 @@ void	a_score(t_env *env)
 	}
 }
 
-static int	minimum(int *arr)
+int	minimum(int *arr)
 {
 	int	i;
 	int min;
 
 	i = 0;
 	min = arr[0];
-	while (++i < 4)
+	while (i < 4)
 	{
 		if (arr[i] < min)
 			min = arr[i];
+		i++;
 	}
 	return (min);
 }

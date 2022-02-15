@@ -42,16 +42,21 @@ int	main(int argc, char **argv)
 	// ft_pb(env, 1);
 	// ft_pb(env, 1);
 
-	printf("%c", '\n');
 	print_stack(env->stack_a);
 	printf("%c", '\n');
 	print_stack(env->stack_b);
-
-	t_list *minimum;
-	minimum = find_min_elem(env);
-	min_score_move(env, minimum);
-
 	printf("%c", '\n');
+
+	a_score(env);
+	b_score(env);
+	//printf("%d\n", env->stack_b->rra_score);
+
+	//t_list *minimum;
+	//minimum = find_min_elem(env);
+	//printf("%d", minimum->value);
+	min_score_move(env, find_min_elem(env));
+
+	//printf("%c", '\n');
 	print_stack(env->stack_a);
 	printf("%c", '\n');
 	print_stack(env->stack_b);
