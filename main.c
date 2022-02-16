@@ -15,29 +15,19 @@ int	main(int argc, char **argv)
     int		*new;
 	int		*sorted_new;
 	t_env	*env;
-
-
-	int array[4] = {0, 1, 2, 3};
-	t_list *stack_dop;
-
-	int i = 0;
+	int		len;
 	
 	new = ft_make_int_array(argv, argc);
 	sorted_new = ft_make_sorted_int_array(argv, argc);
 	ft_array_is_sorted(new, sorted_new, argc);
 	env = set_env(new, sorted_new, argc);
 
-	push2b(env);
-
 	print_stack(env->stack_a);
 	printf("%c", '\n');
 	print_stack(env->stack_b);
 	printf("%c", '\n');
 
-	a_score(env);
-	b_score(env);
-	
-	min_score_move(env, find_min_elem(env));
+	push_swap(env);
 
 	print_stack(env->stack_a);
 	printf("\n");

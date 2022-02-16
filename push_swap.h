@@ -81,4 +81,18 @@ void	min_score_move(t_env *env, t_list *min_elem);
 
 t_list *find_min_elem(t_env *env);
 
+void	push_swap(t_env *env);
+
+void	push2a(t_env *env);
+
+void	sort_three_b(t_env *env);
+
+void	sort_three_a(t_env *env);
+
+void	mini_sort(t_env *env);
+
+void	final_sort_a(t_env *env);
+
+void	print_stack(t_list	*list);////
+
 #endif

@@ -1,27 +1,62 @@
 #include "push_swap.h"
 
-// static void	join_stacks(t_env *env)
-// {
-// 	while (env->b_size > 0)
-// 		ft_pa(env, 1);
-// }
+static void	sort_a(t_env *env)
+{
+	int	first;
+	int	second;
 
-// void	mini_sort(t_env *env)
-// {
-// 	if (env->a_size == 2)
-// 	{
-// 		ft_sa(env, 1);
-// 		return ;
-// 	}
-// 	while (env->a_size > 2)
-// 	{
-// 		ft_pb(env, 1);
-// 	}
-// 	sort_three_a(env);
-// 	if (env->b_size == 2 && 
-// 		env->stack_b->value > env->stack_b->next->value)
-// 		ft_sb(env, 1);
-// 	else if (env->b_size == 3)
-// 		sort_three_b(env);
-// 	join_stacks(env);
-// }
+	first = env->stack_a->value;
+	second = env->stack_a->next->value;
+	if (first < second)
+		ft_ra(env, 1);
+}
+
+static void	sort_b(t_env *env)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = env->stack_b->value;
+	second = env->stack_b->next->value;
+	third = env->stack_b->next->next->value;
+	if (third < first && third > second)
+	{
+		ft_sb(env, 1);
+		ft_rb(env, 1);
+	}
+	else if (!(second > third && second < first))
+	{
+		if (second > first && second < third)
+			ft_sb(env, 1);
+		else if (third < second && third > first)
+			ft_rrb(env, 1);
+		else if (first > third && first < second)
+		{
+			ft_sb(env, 1);
+			return ;
+		}
+		ft_rrb(env, 1);
+	}
+}
+
+
+void	mini_sort(t_env *env)
+{
+	t_list	*last;
+
+	last = ft_lstlast(env->stack_a);
+	while (env->a_size != 2)
+	{
+		if (env->stack_a->value == env->min || env->stack_a->value == env->max)
+			ft_ra(env, 1);
+		else
+			ft_pb(env, 1);
+	}
+	sort_b(env);
+	sort_a(env);
+	ft_pa(env, 1);
+	ft_pa(env, 1);
+	ft_pa(env, 1);
+	ft_rra(env, 1);
+}
