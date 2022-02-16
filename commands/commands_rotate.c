@@ -1,46 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   commands_swap.c                                    :+:      :+:    :+:   */
+/*   commands_rotate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spgibber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 16:48:38 by spgibber          #+#    #+#             */
-/*   Updated: 2022/01/28 16:48:39 by spgibber         ###   ########.fr       */
+/*   Created: 2022/01/28 16:46:58 by spgibber          #+#    #+#             */
+/*   Updated: 2022/01/28 16:47:00 by spgibber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_sa(t_env *env, int flag)
+void	ft_ra(t_env *env, int flag)
 {
+	t_list	*cur;
 	int		current;
 
 	if (!(env->stack_a) || !(env->stack_a->next))
 		return ;
-	current = env->stack_a->value;
-	env->stack_a->value = (env->stack_a->next)->value;
-	(env->stack_a->next)->value = current;
+	cur = env->stack_a;
+	current = cur->value;
+	while (cur->next)
+	{
+		cur->value = cur->next->value;
+		cur = cur->next;
+	}
+	ft_lstlast(cur)->value = current;
 	if (flag == 1)
-		ft_putendl_fd("sa", 1);
+		ft_putendl_fd("ra", 1);
 }
 
-void	ft_sb(t_env *env, int flag)
+void	ft_rb(t_env *env, int flag)
 {
+	t_list	*cur;
 	int		current;
 
 	if (!(env->stack_b) || !(env->stack_b->next))
 		return ;
-	current = env->stack_b->value;
-	env->stack_b->value = (env->stack_b->next)->value;
-	(env->stack_b->next)->value = current;
+	cur = env->stack_b;
+	current = cur->value;
+	while (cur->next)
+	{
+		cur->value = cur->next->value;
+		cur = cur->next;
+	}
+	ft_lstlast(cur)->value = current;
 	if (flag == 1)
-		ft_putendl_fd("sb", 1);
+		ft_putendl_fd("rb", 1);
 }
 
-void	ft_ss(t_env *env)
+void	ft_rr(t_env *env)
 {
-	ft_sa(env, 0);
-	ft_sb(env, 0);
-	ft_putendl_fd("ss", 1);
+	ft_ra(env, 0);
+	ft_rb(env, 0);
+	ft_putendl_fd("rr", 1);
 }

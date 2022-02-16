@@ -1,53 +1,88 @@
 NAME			=		push_swap
+SRCS 			= 		check_input.c \
+						elem_score.c \
+						full_sort.c \
+						make_stack.c \
+						min_score_move.c \
+						mini_sort.c \
+						push_swap.c \
+						sort_utils.c \
+						string.c \
+						./commands/commands_rotate.c \
+						./commands/commands_reverse.c \
+						./commands/commands_push.c \
+						./commands/commands_swap.c \
+						main.c 
+OBJ 			=		$(SRCS:%.c=%.o)
+CFLAGS 			= 		-Wall -Wextra -Werror
+CC				=		gcc
+
+ANOTHER_SRC		= ft_isalpha.c \
+				ft_isdigit.c \
+				ft_isalnum.c \
+				ft_isascii.c \
+				ft_isprint.c \
+				ft_strlen.c \
+				ft_memset.c \
+				ft_bzero.c \
+				ft_memcpy.c \
+				ft_memmove.c \
+				ft_strlcpy.c \
+				ft_strlcat.c \
+				ft_toupper.c \
+				ft_tolower.c \
+				ft_strchr.c \
+				ft_strrchr.c \
+				ft_strncmp.c \
+				ft_memchr.c \
+				ft_memcmp.c \
+				ft_strnstr.c \
+				ft_atoi.c \
+				ft_calloc.c \
+				ft_strdup.c \
+				ft_putchar_fd.c \
+				ft_putstr_fd.c \
+				ft_putendl_fd.c \
+				ft_putnbr_fd.c \
+				ft_itoa.c \
+				ft_strjoin.c \
+				ft_strmapi.c \
+				ft_substr.c \
+				ft_striteri.c \
+				ft_strtrim.c \
+				ft_split.c \
+				ft_lstadd_front.c \
+	  			ft_lstsize.c \
+	  			ft_lstlast.c \
+	  			ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstmap.c \
+				ft_lstnew.c
+
 LIBFT_PATH		=		libft/
 LIBFT			=		$(LIBFT_PATH)libft.a
-SRC_PATH		=		src/
-SRC 			= 		builtins/pwd/pwd.c		    builtins/env/env.c				builtins/export/export.c		\
-						builtins/unset/unset.c		builtins/echo/echo.c			builtins/cd/cd.c				\
-						builtins/cd/cd_utils.c      builtins/exit/exit.c			builtins/export/export_utils.c	\
-						parse/parse_envs.c			parse/parse.c					parse/token_convers.c			\
-						parse/parse_utils.c			parse/parse_init.c				parse/parse_handling.c			\
-						parse/process_tokening.c	parse/token_amount.c			parse/token_create.c			\
-						parse/split_commands.c		parse/parse_dollar.c			parse/get_commands.c			\
-						parse/concat_commands.c		parse/preparse.c				parse/check_and_errors.c		\
-						parse/quotes.c				parse/correct_env_case.c		parse/token_lst_utils.c			\
-						parse/addon_token.c			parse/quotes_hand.c												\
-						execute/bin_utils.c         execute/execute_bins.c	        execute/execute_builtins.c		\
-						execute/execute_cmd.c       execute/execute_token.c	        execute/get_tokens.c			\
-						execute/handle_path_var.c   execute/handle_redirects.c		execute/redirect_utils.c 		\
-						utils/env_utils_1.c 		utils/env_utils_2.c				utils/get_next_line.c			\
-						utils/check_env_syntax.c	utils/print_errno_error.c										\
-						signals/signals.c			signals/signals_add.c											\
-						errors/errors_1.c 			errors/errors_2.c												\
-						main.c
-OBJ 			=		$(patsubst %.c,%.o,$(addprefix $(SRC_PATH),$(SRC)))
-D_FILES 		=		$(patsubst %.c,%.d,$(addprefix $(SRC_PATH),$(SRC)))
-OPTFLAGS 		=		-O2
-CFLAGS 			= 		-Wall -Wextra -Werror
-LFLAGS			=		-L/usr/local/opt/readline/lib
-HFLAGS			=		-I/usr/local/opt/readline/include
+LIBFT_SRC = $(addprefix ./libft/, $(ANOTHER_SRC))
+LIBFT_HEADER = ./libft/libft.h
+LIBFT_OBJS = $(LIBFT_SRC:.c=.o)
 
+all 			: 		$(NAME)
 
-all 			: 		$(LIBFT) $(NAME)
-
-$(LIBFT)		:
+$(LIBFT)		: 		$(LIBFT_SRC) $(LIBFT_HEADER) $(LIBFT_OBJS) 
 						make -s -C $(LIBFT_PATH)
 
-$(NAME)		 	:		$(OBJ)
-						gcc $(CFLAGS) $(LFLAGS) $(HFLAGS) $(OPTFLAGS) -lreadline -L$(LIBFT_PATH) -lft $(OBJ) -o $(NAME)
-						@echo "minishell is ready to launch"
+$(NAME)		 	:		$(OBJ) $(LIBFT)
+						$(CC) $(CFLAGS) $(LIBFT) $(OBJ) -o $(NAME)
 
 %.o 			: 		%.c
-						gcc $(CFLAGS) $(OPTFLAGS) -c $< -o $@ -MD
-
-include $(wildcard $(D_FILES))
+						$(CC) $(CFLAGS) -c $< -o $@
 
 clean 			: 
-						@make -C $(LIBFT_PATH) clean
-						@rm -f $(OBJ) $(D_FILES)
+						@make -s -C $(LIBFT_PATH) clean
+						@rm -f $(OBJ)
 
 fclean 			: 		clean
-						@make -C $(LIBFT_PATH) fclean
+						@make -s -C $(LIBFT_PATH) fclean
 						@rm -f $(NAME)
 
 re 				: 		fclean all

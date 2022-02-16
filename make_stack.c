@@ -61,14 +61,12 @@ void	ft_array_is_sorted(int *array, int *new_array, int len)
 	}
 }
 
-void	ft_make_node(int value, t_list **lst)
+static void	ft_make_node(int value, t_list **lst)
 {
 	t_list	*new;
 
 	if (!lst)
-	{
 		*lst = ft_lstnew(value);
-	}
 	else
 	{
 		new = ft_lstnew(value);

@@ -108,9 +108,9 @@ int	*ft_make_sorted_int_array(char **array, int len)
 	int	i;
 
 	i = 1;
-	if (len < 2)
-		ft_print();
 	new = (int *)malloc((len - 1) * sizeof(int));
+	if (!new)
+		ft_print();
 	while (i < len)
 	{
 		if (ft_isnumber(array[i]) == 1)

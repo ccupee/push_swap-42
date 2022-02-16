@@ -47,7 +47,7 @@ void	a_score(t_env *env)
 	}
 }
 
-int	minimum(int *arr)
+static int	minimum(int *arr)
 {
 	int	i;
 	int min;
@@ -63,7 +63,7 @@ int	minimum(int *arr)
 	return (min);
 }
 
-int	calculate_score(t_list *stack)
+static int	calculate_score(t_list *stack)
 {
 	int	min;
 	int	score[4];

@@ -4,18 +4,13 @@ int	is_sorted(t_env *env)
 {
 	t_list	*first;
 	t_list	*second;
-	t_list	*third;
-
 
 	first = env->stack_a;
 	second = first->next;
-	third = second->next;
-	if ((first->value > second->value && second->value > third->value) ||
-		(first->value > second->value && second->value < third->value))
+	if ((first->value == env->min && second->value == env->max) ||
+		(first->value == env->max && second->value == env->middle) ||
+		(first->value == env->middle && second->value == env->min))
 			return (1);
-	else if (first->value < second->value && second->value > third->value &&
-			first->value < third->value)
-			return (2);
 	else
 		return (0);
 }
@@ -36,12 +31,7 @@ void	push2b(t_env *env)
 		else
 			ft_ra(env, 1);
 	}
-	// if (is_sorted(env) == 1)
-	// 	ft_sa(env, 1);
-	// if (is_sorted(env) == 2)
-	// {
-	// 	ft_rra(env, 1);
-	// 	ft_sa(env, 1);
-	// }
+	if (is_sorted(env) == 1)
+		ft_sa(env, 1);
 	sort_three_a(env);
 }

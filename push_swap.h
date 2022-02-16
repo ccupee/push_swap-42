@@ -41,8 +41,6 @@ int		*ft_make_int_array(char **array, int len);
 
 void	ft_array_is_sorted(int *array, int *new_array, int len);
 
-void	ft_make_node(int value, t_list **lst);
-
 void	ft_make_stack(t_list *lst, int *array, int len);
 
 void	ft_ra(t_env *env, int flag);
@@ -73,8 +71,6 @@ void	b_score(t_env *env);
 
 void	a_score(t_env *env);
 
-int		calculate_score(t_list *stack);
-
 void	push2b(t_env *env);
 
 void	min_score_move(t_env *env, t_list *min_elem);
@@ -89,10 +85,10 @@ void	sort_three_b(t_env *env);
 
 void	sort_three_a(t_env *env);
 
-void	mini_sort(t_env *env);
+void	mini_sort_5(t_env *env);
 
 void	final_sort_a(t_env *env);
 
-void	print_stack(t_list	*list);////
+void	mini_sort_4(t_env *env);
 
 #endif

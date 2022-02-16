@@ -11,6 +11,17 @@ static void	sort_a(t_env *env)
 		ft_ra(env, 1);
 }
 
+static void	sort_b_4(t_env *env)
+{
+	int	first;
+	int	second;
+
+	first = env->stack_b->value;
+	second = env->stack_b->next->value;
+	if (first < second)
+		ft_rb(env, 1);
+}
+
 static void	sort_b(t_env *env)
 {
 	int	first;
@@ -40,12 +51,8 @@ static void	sort_b(t_env *env)
 	}
 }
 
-
-void	mini_sort(t_env *env)
+void	mini_sort_5(t_env *env)
 {
-	t_list	*last;
-
-	last = ft_lstlast(env->stack_a);
 	while (env->a_size != 2)
 	{
 		if (env->stack_a->value == env->min || env->stack_a->value == env->max)
@@ -56,6 +63,22 @@ void	mini_sort(t_env *env)
 	sort_b(env);
 	sort_a(env);
 	ft_pa(env, 1);
+	ft_pa(env, 1);
+	ft_pa(env, 1);
+	ft_rra(env, 1);
+}
+
+void	mini_sort_4(t_env *env)
+{
+	while (env->a_size != 2)
+	{
+		if (env->stack_a->value == env->min || env->stack_a->value == env->max)
+			ft_ra(env, 1);
+		else
+			ft_pb(env, 1);
+	}
+	sort_a(env);
+	sort_b_4(env);
 	ft_pa(env, 1);
 	ft_pa(env, 1);
 	ft_rra(env, 1);

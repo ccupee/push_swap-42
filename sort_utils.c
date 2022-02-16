@@ -1,28 +1,5 @@
 #include "push_swap.h"
 
-t_env	*set_env(int *array, int *sorted_array, int len)
-{
-	t_env	*env;
-
-	env = (t_env *) malloc(sizeof(t_env));
-	if (!env)
-		return (NULL);
-	env->max = sorted_array[len - 2];
-	env->min = sorted_array[0];
-	env->middle = sorted_array[(len - 1) / 2];
-	env->stack_a = ft_lstnew(array[0]);
-	ft_make_stack(env->stack_a, array, len);
-	env->stack_b = NULL;
-	env->a_size = len - 1;
-	env->b_size = 0;
-	if (!env->stack_a)
-	{
-		free(env);
-		return (NULL);
-	}
-	return (env);
-}
-
 void	sort_three_a(t_env *env)
 {
 	if (env->stack_a->value == env->max)

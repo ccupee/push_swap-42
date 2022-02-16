@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	move_ra_rb_actions(t_env *env, t_list *min_elem)
+static void	move_ra_rb_actions(t_env *env, t_list *min_elem)
 {
 	int	difference;
 	int	rr_count;
@@ -25,7 +25,7 @@ void	move_ra_rb_actions(t_env *env, t_list *min_elem)
 	}
 }
 
-void	move_rra_rrb_actions(t_env *env, t_list *min_elem)
+static void	move_rra_rrb_actions(t_env *env, t_list *min_elem)
 {
 	int	difference;
 	int	rrr_count;
@@ -50,7 +50,7 @@ void	move_rra_rrb_actions(t_env *env, t_list *min_elem)
 	}
 }
 
-void	move_ra_rrb_actions(t_env *env, t_list *min_elem)
+static void	move_ra_rrb_actions(t_env *env, t_list *min_elem)
 {
 	int	ra_count;
 	int	rrb_count;
@@ -63,7 +63,7 @@ void	move_ra_rrb_actions(t_env *env, t_list *min_elem)
 		ft_rrb(env, 1);
 }
 
-void	move_rra_rb_actions(t_env *env, t_list *min_elem)
+static void	move_rra_rb_actions(t_env *env, t_list *min_elem)
 {
 	int	rra_count;
 	int	rb_count;
