@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   elem_score.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spgibber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/19 18:15:58 by spgibber          #+#    #+#             */
+/*   Updated: 2022/02/19 18:16:05 by spgibber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	b_score(t_env *env)
@@ -34,8 +46,8 @@ void	a_score(t_env *env)
 		first_a = env->stack_a;
 		last_a = last_elem;
 		score = 0;
-		while (!(cur_b->value < first_a->value && 
-				cur_b->value >last_a->value))
+		while (!(cur_b->value < first_a->value && \
+				cur_b->value > last_a->value))
 		{
 			last_a = first_a;
 			first_a = first_a->next;
@@ -50,7 +62,7 @@ void	a_score(t_env *env)
 static int	minimum(int *arr)
 {
 	int	i;
-	int min;
+	int	min;
 
 	i = 0;
 	min = arr[0];
@@ -84,10 +96,10 @@ static int	calculate_score(t_list *stack)
 	return (min);
 }
 
-t_list *find_min_elem(t_env *env)
+t_list	*find_min_elem(t_env *env)
 {
-	t_list *min_elem;
-	t_list *cur;
+	t_list	*min_elem;
+	t_list	*cur;
 
 	min_elem = env->stack_b;
 	cur = env->stack_b;

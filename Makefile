@@ -1,5 +1,5 @@
 NAME			=		push_swap
-SRCS 			= 		check_input.c \
+SRCS 			= 		make_stack_utils.c \
 						elem_score.c \
 						full_sort.c \
 						make_stack.c \
@@ -55,9 +55,7 @@ ANOTHER_SRC		= ft_isalpha.c \
 	  			ft_lstsize.c \
 	  			ft_lstlast.c \
 	  			ft_lstadd_back.c \
-				ft_lstdelone.c \
 				ft_lstiter.c \
-				ft_lstmap.c \
 				ft_lstnew.c
 
 LIBFT_PATH		=		libft/

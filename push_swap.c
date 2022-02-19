@@ -61,10 +61,7 @@ void	final_sort_a(t_env *env)
 
 void	push2a(t_env *env)
 {
-	t_list	*cur;
 	t_list	*min_elem;
-	int		minimum;
-	int		cur_minimum;
 
 	a_score(env);
 	b_score(env);
@@ -98,6 +95,6 @@ void	push_swap(t_env *env)
 	while (env->b_size != 0)
 		push2a(env);
 	final_sort_a(env);
-	// ft_lstclear(&(env->stack_a));
-	// free(env);
+	ft_lstclear(&(env->stack_a));
+	free(env);
 }

@@ -38,5 +38,6 @@ void	ft_pb(t_env *env, int flag)
 	ft_lstadd_front(&(env->stack_b), cur);
 	env->b_size++;
 	env->a_size--;
-	ft_putendl_fd("pb", 1);
+	if (flag == 1)
+		ft_putendl_fd("pb", 1);
 }

@@ -15,10 +15,10 @@
 // #include <stdio.h>
 // #include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, int start, int len)
 {
-	char			*newstr;
-	unsigned int	i;
+	char	*newstr;
+	int		i;
 
 	i = 0;
 	if (!s)
