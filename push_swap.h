@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include "libft/libft.h"
 
-typedef struct	s_env 
+typedef struct s_env
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -23,7 +23,7 @@ typedef struct	s_env
 	int		middle;
 	int		a_size;
 	int		b_size;
-}   t_env;
+}	t_env;
 
 void			ft_print(void);
 
@@ -75,7 +75,7 @@ void			push2b(t_env *env);
 
 void			min_score_move(t_env *env, t_list *min_elem);
 
-t_list 			*find_min_elem(t_env *env);
+t_list			*find_min_elem(t_env *env);
 
 void			push_swap(t_env *env);
 

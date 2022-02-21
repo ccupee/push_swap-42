@@ -82,16 +82,22 @@ void	mini_sort_5(t_env *env)
 
 void	mini_sort_4(t_env *env)
 {
-	while (env->a_size != 2)
+	if (env->a_size == 2)
+		ft_sa(env, 1);
+	else
 	{
-		if (env->stack_a->value == env->min || env->stack_a->value == env->max)
-			ft_ra(env, 1);
-		else
-			ft_pb(env, 1);
+		while (env->a_size != 2)
+		{
+			if (env->stack_a->value == env->min \
+				|| env->stack_a->value == env->max)
+				ft_ra(env, 1);
+			else
+				ft_pb(env, 1);
+		}
+		sort_a(env);
+		sort_b_4(env);
+		ft_pa(env, 1);
+		ft_pa(env, 1);
+		ft_rra(env, 1);
 	}
-	sort_a(env);
-	sort_b_4(env);
-	ft_pa(env, 1);
-	ft_pa(env, 1);
-	ft_rra(env, 1);
 }

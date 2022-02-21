@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   string.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spgibber <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/21 12:47:42 by spgibber          #+#    #+#             */
+/*   Updated: 2022/02/21 12:47:44 by spgibber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 char	**make_array_str(char *str)
 {
-    char    **arr;
+	char	**arr;
 
-    arr = ft_split(str, ' ');
-    if (!arr)
-        return (NULL);
-    return (arr);
+	arr = ft_split(str, ' ');
+	if (!arr)
+		return (NULL);
+	return (arr);
 }
 
 unsigned int	ft_count(char const *s, char c)

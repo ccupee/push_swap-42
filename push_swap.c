@@ -49,6 +49,7 @@ void	final_sort_a(t_env *env)
 	}
 	if (count > env->a_size / 2)
 	{
+		count = env->a_size - count;
 		while (count-- > 0)
 			ft_rra(env, 1);
 	}
@@ -69,32 +70,35 @@ void	push2a(t_env *env)
 	min_score_move(env, min_elem);
 }
 
+static void	clear_it(t_env *env)
+{
+	ft_lstclear(&(env->stack_a));
+	free(env);
+}
+
 void	push_swap(t_env *env)
 {
-	if (env->a_size == 2)
+	if (env->a_size == 2 || env->a_size == 4)
 	{
-		ft_sa(env, 1);
+		mini_sort_4(env);
+		clear_it(env);
 		return ;
 	}
 	if (env->a_size == 3)
 	{
 		sort_three_a(env);
-		return ;
-	}
-	if (env->a_size == 4)
-	{
-		mini_sort_4(env);
+		clear_it(env);
 		return ;
 	}
 	if (env->a_size == 5)
 	{
 		mini_sort_5(env);
+		clear_it(env);
 		return ;
 	}
 	push2b(env);
 	while (env->b_size != 0)
 		push2a(env);
 	final_sort_a(env);
-	ft_lstclear(&(env->stack_a));
-	free(env);
+	clear_it(env);
 }
