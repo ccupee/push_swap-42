@@ -33,7 +33,7 @@ static void	free_all_1(int *new, int *sorted_new, char **array, int len)
 static void	check_argc(int n)
 {
 	if (n == 1)
-		return ;
+		exit(EXIT_FAILURE);
 }
 
 t_env	*make_env(int *new, int *sorted_new, int len, t_env *env)
